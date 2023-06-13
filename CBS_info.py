@@ -23,7 +23,7 @@ if response.status_code == 200:
     # Create a DataFrame from the list of dictionaries
     df = pd.DataFrame(data)
 
-    # df['path'] = df['path'].astype(int)
+    df['path'] = df['path'].astype(int)
     df = df.rename(columns={'path': 'level1'})
     df = df.sort_values('level1')
     # Now you can work with the DataFrame
