@@ -26,7 +26,7 @@ if response.status_code == 200:
 
     # Create a DataFrame from the list of dictionaries
     df = pd.DataFrame(data)
-
+    st.write(df.columns)
     df['path'] = df['path'].astype(int)
     df = df.rename(columns={'path': 'level1'})
 
