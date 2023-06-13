@@ -52,5 +52,5 @@ if response.status_code == 200:
     df = pd.DataFrame(data)
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
-
+    df['path'] = df['path'][0]
     st.write(df.head())
