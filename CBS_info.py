@@ -28,6 +28,7 @@ if response.status_code == 200:
 
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
-    st.dataframe(df.sort_values('level1'), hide_index=True)
+    st.dataframe(df.sort_values('level1'), hide_index=True,
+                 use_container_width=True)
 else:
     print("Failed to retrieve data. Error:", response.status_code)
