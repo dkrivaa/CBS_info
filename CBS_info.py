@@ -3,7 +3,6 @@ import xml.etree.ElementTree as ET
 import pandas as pd
 import requests
 
-# This
 # url = 'https://apis.cbs.gov.il/series/catalog/level?id=5&subject=2&format=xml&download=false'
 url = 'https://apis.cbs.gov.il/series/catalog/level?id=1&format=xml&download=false'
 
@@ -30,7 +29,7 @@ if response.status_code == 200:
 
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
-    print(df.tail())
+    st.write(df.tail())
     print(df['path'][32])
     print(df['name'][32])
 else:
