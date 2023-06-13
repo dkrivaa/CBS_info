@@ -22,7 +22,7 @@ if response.status_code == 200:
         data.append(item_data)
     # Create a DataFrame from the list of dictionaries
     df = pd.DataFrame(data)
-
+    st.table(df)
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
 
