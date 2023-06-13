@@ -26,9 +26,22 @@ if response.status_code == 200:
     # df['path'] = df['path'].astype(int)
     df = df.rename(columns={'path': 'level1'})
     df = df.sort_values('level1')
-    df['show_all'] = df['name'] + ' ' + df['level1']
+    df['show_all'] = df['level1'] + ' ' + df['name']
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
+
+    # Apply custom CSS styling to right-align the select box text
+    st.markdown(
+        """
+        <style>
+        .stSelectbox label {
+            text-align: right;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
     choice1 = st.selectbox('select a level 1', df['show_all'])
 else:
     print("Failed to retrieve data. Error:", response.status_code)
