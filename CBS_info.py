@@ -5,15 +5,12 @@ import requests
 
 # url = 'https://apis.cbs.gov.il/series/catalog/level?id=5&subject=2&format=xml&download=false'
 url = 'https://apis.cbs.gov.il/series/catalog/level?id=1&format=xml&download=false'
-
 # Send a GET request to the URL
 response = requests.get(url)
-
 # Check if the request was successful (status code 200)
 if response.status_code == 200:
     # Parse the XML content
     root = ET.fromstring(response.content)
-
     # Extract the data you need from the XML and store it in a list of dictionaries
     data = []
     for level in root.findall(".//Level"):
@@ -23,10 +20,9 @@ if response.status_code == 200:
             "name": level.find("name").text,
         }
         data.append(item_data)
-
     # Create a DataFrame from the list of dictionaries
     df = pd.DataFrame(data)
-    st.write(df.columns)
+
     df['path'] = df['path'].astype(int)
     df = df.rename(columns={'path': 'level1'})
 
