@@ -29,6 +29,6 @@ if response.status_code == 200:
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
 
-    choice1 = st.selectbox('select a level 1', df['level1'])
+    choice1 = st.selectbox('select area of interest', df['name'])
 else:
     print("Failed to retrieve data. Error:", response.status_code)
