@@ -27,7 +27,8 @@ if response.status_code == 200:
     # For example, you can display the first few rows:
 
     choice1 = st.selectbox('select area of interest', df['name'])
-    st.write(df['path'][df['name'].tolist().index(choice1)])
+    path1 = (df['path'][df['name'].tolist().index(choice1)])
+    st.write(path1)
 
 
 else:
