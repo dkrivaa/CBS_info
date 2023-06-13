@@ -29,7 +29,7 @@ if response.status_code == 200:
 
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
-    st.write(df)
+    st.write(df.sort_values('path'))
     print(df['path'][32])
     print(df['name'][32])
 else:
