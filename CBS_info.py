@@ -26,7 +26,7 @@ if response.status_code == 200:
     # df['path'] = df['path'].astype(int)
     df = df.rename(columns={'path': 'level1'})
     df = df.sort_values('level1')
-    df['show_all'] = df['level1'] + ' ' + df['name']
+    df['show_all'] = df['name'] + ' ' + df['level1']
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
     choice1 = st.selectbox('select a level 1', df['show_all'])
