@@ -27,9 +27,11 @@ if response.status_code == 200:
     # Create a DataFrame from the list of dictionaries
     df = pd.DataFrame(data)
 
+    df['path'] = df['path'].astype(int)
+    df = df.rename(columns={'path': 'level1'})
+
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
-    df['path'] = df['path'].astype(int)
     st.table(df.sort_values('path'))
 else:
     print("Failed to retrieve data. Error:", response.status_code)
