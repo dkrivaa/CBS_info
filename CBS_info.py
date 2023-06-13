@@ -30,6 +30,6 @@ if response.status_code == 200:
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
     df['path'] = df['path'].astype(int)
-    st.write(df.sort_values('path'))
+    st.table(df.sort_values('path'))
 else:
     print("Failed to retrieve data. Error:", response.status_code)
