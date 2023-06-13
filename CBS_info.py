@@ -23,12 +23,13 @@ if response.status_code == 200:
     # Create a DataFrame from the list of dictionaries
     df = pd.DataFrame(data)
 
-    df['path'] = df['path'].astype(int)
+    # df['path'] = df['path'].astype(int)
     df = df.rename(columns={'path': 'level1'})
-
+    df = df.sort_values('level1')
+    df['show_all'] = df['level1'] + ' ' + df['name']
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
-    st.dataframe(df.sort_values('level1'), hide_index=True,
+    st.selectbox(df['show_all'], hide_index=True,
                  use_container_width=True)
 else:
     print("Failed to retrieve data. Error:", response.status_code)
