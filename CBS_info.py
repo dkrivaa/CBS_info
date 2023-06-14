@@ -29,7 +29,7 @@ if response.status_code == 200:
     path1 = (df['path'][df['name'].tolist().index(choice1)])
     st.write(path1)
 else:
-    print("Failed to retrieve data. Error:", response.status_code)
+    st.write("Failed to retrieve data. Error:", response.status_code)
 
 # Level2
 url = 'https://apis.cbs.gov.il/series/catalog/level?id=2&subject=' + path1 + '&format=xml&download=false'
