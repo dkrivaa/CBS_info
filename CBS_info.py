@@ -43,7 +43,7 @@ if response.status_code == 200:
     for level in root.findall(".//Level"):
         # Extract relevant data from each item and store it in a dictionary
         item_data = {
-            "path": ", ".join([str(int_element.text) for int_element in level.findall("path/int")]),
+            "path": ",".join([str(int_element.text) for int_element in level.findall("path/int")]),
             "name": level.find("name").text,
         }
         data.append(item_data)
@@ -69,7 +69,7 @@ if response.status_code == 200:
     for level in root.findall(".//Level"):
         # Extract relevant data from each item and store it in a dictionary
         item_data = {
-            "path": ", ".join([str(int_element.text) for int_element in level.findall("path/int")]),
+            "path": ",".join([str(int_element.text) for int_element in level.findall("path/int")]),
             "name": level.find("name").text,
         }
         data.append(item_data)
@@ -78,7 +78,6 @@ if response.status_code == 200:
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
     len2 = len(path2)
-    st.write(df3['path'][0:len2])
     df3 = df3.loc[df3['path'][0:len2] == path2]
     choice3 = st.selectbox('Level 3 - Select area of interest', df3['name'])
     # path3 = (df3['path'][df3['name'].tolist().index(choice3)])
