@@ -21,11 +21,11 @@ if response.status_code == 200:
         }
         data.append(item_data)
     # Create a DataFrame from the list of dictionaries
-    df = pd.DataFrame(data)
+    df1 = pd.DataFrame(data)
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
-    choice1 = st.selectbox('select area of interest', df['name'])
-    path1 = (df['path'][df['name'].tolist().index(choice1)])
+    choice1 = st.selectbox('select area of interest', df1['name'])
+    path1 = (df1['path'][df1['name'].tolist().index(choice1)])
     st.write(path1)
 else:
     st.write("Failed to retrieve data. Error:", response.status_code)
@@ -48,9 +48,9 @@ if response.status_code == 200:
         }
         data.append(item_data)
     # Create a DataFrame from the list of dictionaries
-    df = pd.DataFrame(data)
+    df2 = pd.DataFrame(data)
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
-    choice2 = st.selectbox('select area of interest', df['name'])
-    path2 = (df['path'][df['name'].tolist().index(choice2)])
+    choice2 = st.selectbox('select area of interest', df2['name'])
+    path2 = (df2['path'][df2['name'].tolist().index(choice2)])
     st.write(path2)
