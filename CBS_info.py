@@ -79,7 +79,7 @@ if response.status_code == 200:
     # For example, you can display the first few rows:
     len2 = len(path2)
     st.write(len2)
-    st.write(type(path2))
+    st.write(path2)
     df3 = df3.loc[df3['path'][0:len2] == path2]
     st.write(df3['path'][0:len2])
     choice3 = st.selectbox('Level 3 - Select area of interest', df3['name'])
