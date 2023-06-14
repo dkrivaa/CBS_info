@@ -57,8 +57,8 @@ if response.status_code == 200:
 
 # Level3
 url = 'https://apis.cbs.gov.il/series/catalog/level?id=3&subject=' \
-      + path1 + ', ' \
-      + path2[2] + \
+      + '4' + ', ' \
+      + '5' + \
       '&format=xml&download=false'
 # Send a GET request to the URL
 response = requests.get(url)
