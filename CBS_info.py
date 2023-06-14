@@ -53,7 +53,6 @@ if response.status_code == 200:
     # For example, you can display the first few rows:
     choice2 = st.selectbox('Level 2 - Select area of interest', df2['name'])
     path2 = (df2['path'][df2['name'].tolist().index(choice2)])
-    st.write(path2[2])
     st.write(path2)
 
 
@@ -80,5 +79,4 @@ if response.status_code == 200:
     # For example, you can display the first few rows:
     choice3 = st.selectbox('Level 3 - Select area of interest', df3['name'])
     path3 = (df3['path'][df3['name'].tolist().index(choice3)])
-    st.write(path3[2])
-    st.dataframe(df3)
+    st.write(path3)
