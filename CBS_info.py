@@ -56,7 +56,7 @@ if response.status_code == 200:
     st.write(path2[2])
 
 # Level3
-url = 'https://apis.cbs.gov.il/series/catalog/level?id=3&subject=4,5&format=xml&download=false'
+url = 'https://apis.cbs.gov.il/series/catalog/level?id=3&subject=' + path2 + '&format=xml&download=false'
 # Send a GET request to the URL
 response = requests.get(url)
 # Check if the request was successful (status code 200)
