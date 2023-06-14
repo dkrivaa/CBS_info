@@ -78,6 +78,7 @@ if response.status_code == 200:
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
     len2 = len(path2)
+    st.write(len2)
     st.write(path2)
     st.write(df3['path'][0:len2])
     df3 = df3.loc[df3['path'][0:len2] == path2]
