@@ -115,7 +115,6 @@ if response.status_code == 200:
 # Level5
 url = 'https://apis.cbs.gov.il/series/catalog/level?id=5&subject=' + path1 + '&format=xml&download=false'
 # Send a GET request to the URL
-st.write(url)
 response = requests.get(url)
 # Check if the request was successful (status code 200)
 if response.status_code == 200:
@@ -134,7 +133,7 @@ if response.status_code == 200:
     df5 = pd.DataFrame(data)
     # Now you can work with the DataFrame
     len4 = len(path4)
-    dfy = df5.loc[df5['path'].str[:len4] == path3]
+    dfy = df5.loc[df5['path'].str[:len4] == path4]
     dfy = dfy.reset_index(drop=True)
     choice5 = st.selectbox('Level 5 - Select area of interest', dfy['name'])
     path5 = (dfy['path'][dfy['name'].tolist().index(choice5)])
