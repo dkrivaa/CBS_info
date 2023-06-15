@@ -135,6 +135,7 @@ if response.status_code == 200:
     len4 = len(path4)
     dfy = df5.loc[df5['path'].str[:len4] == path4]
     dfy = dfy.reset_index(drop=True)
-    choice5 = st.selectbox('Level 5 - Select area of interest', dfy['name'])
-    path5 = (dfy['path'][dfy['name'].tolist().index(choice5)])
-    st.write(path5)
+    st.write(dfy)
+    # choice5 = st.selectbox('Level 5 - Select area of interest', dfy['name'])
+    # path5 = (dfy['path'][dfy['name'].tolist().index(choice5)])
+    # st.write(path5)
