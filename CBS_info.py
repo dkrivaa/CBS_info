@@ -81,8 +81,7 @@ if response.status_code == 200:
     dfi = df3.loc[df3['path'].str[:len2] == path2]
     choice3 = st.selectbox('Level 3 - Select area of interest', dfi['name'])
     x = dfi['name'].tolist()
-    path3 = lambda x: (dfi['path'][dfi['name'].tolist().index(choice3)]) if len(x) > 1 \
-        else dfi['path'][0]
+    path3 = (dfi['path'][dfi['name'].tolist().index(choice3)])
     st.write(path3)
 
 # Level4
