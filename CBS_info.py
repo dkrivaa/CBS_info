@@ -52,6 +52,7 @@ if response.status_code == 200:
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
     choice2 = st.selectbox('Level 2 - Select area of interest', df2['name'])
+    st.write([df2['name'].tolist().index(choice2)])
     path2 = (df2['path'][df2['name'].tolist().index(choice2)])
     st.write(path2)
 
