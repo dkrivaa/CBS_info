@@ -99,7 +99,7 @@ if response.status_code == 200:
     for level in root.findall(".//Level"):
         # Extract relevant data from each item and store it in a dictionary
         item_data = {
-            "path": ", ".join([str(int_element.text) for int_element in level.findall("path/int")]),
+            "path": ",".join([str(int_element.text) for int_element in level.findall("path/int")]),
             "name": level.find("name").text,
         }
         data.append(item_data)
@@ -110,9 +110,9 @@ if response.status_code == 200:
     dfs = df4.loc[df4['path'].str[:len3] == path3]
     dfs = dfs.reset_index(drop=True)
     st.write(dfs)
-    # choice4 = st.selectbox('Level 4 - Select area of interest', dfs['name'])
-    # path4 = (dfs['path'][dfs['name'].tolist().index(choice4)])
-    # st.write(path4)
+    choice4 = st.selectbox('Level 4 - Select area of interest', dfs['name'])
+    path4 = (dfs['path'][dfs['name'].tolist().index(choice4)])
+    st.write(path4)
 
 # Level5
 url = 'https://apis.cbs.gov.il/series/catalog/level?id=4&subject=' + path1 + '&format=xml&download=false'
