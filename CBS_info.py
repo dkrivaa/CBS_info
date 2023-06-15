@@ -106,10 +106,10 @@ if response.status_code == 200:
     df4 = pd.DataFrame(data)
     # Now you can work with the DataFrame
     len3 = len(path3)
-    dfi = df4.loc[df4['path'].str[:len3] == path3]
-    dfi = dfi.reset_index(drop=True)
-    choice4 = st.selectbox('Level 4 - Select area of interest', df4['name'])
-    path4 = (df4['path'][df4['name'].tolist().index(choice4)])
+    dfs = df4.loc[df4['path'].str[:len3] == path3]
+    dfs = dfs.reset_index(drop=True)
+    choice4 = st.selectbox('Level 4 - Select area of interest', dfs['name'])
+    path4 = (dfs['path'][dfs['name'].tolist().index(choice4)])
     st.write(path4)
 
 # Level5
