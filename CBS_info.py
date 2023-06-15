@@ -52,7 +52,6 @@ if response.status_code == 200:
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
     choice2 = st.selectbox('Level 2 - Select area of interest', df2['name'])
-    st.write([df2['name'].tolist().index(choice2)])
     path2 = (df2['path'][df2['name'].tolist().index(choice2)])
     st.write(path2)
 
@@ -81,10 +80,8 @@ if response.status_code == 200:
     len2 = len(path2)
     dfi = df3.loc[df3['path'].str[:len2] == path2]
     choice3 = st.selectbox('Level 3 - Select area of interest', dfi['name'])
-    st.write(choice3)
-    st.write([dfi['name'].tolist().index(choice3)])
-    # path3 = (dfi['path'][dfi['name'].tolist().index(choice3)])
-    # st.write(path3)
+    path3 = (dfi['path'][dfi['name'].tolist().index(choice3)])
+    st.write(path3)
 
 # Level4
 url = 'https://apis.cbs.gov.il/series/catalog/level?id=4&subject=' + path1 + '&format=xml&download=false'
