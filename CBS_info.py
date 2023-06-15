@@ -49,6 +49,7 @@ if response.status_code == 200:
         data.append(item_data)
     # Create a DataFrame from the list of dictionaries
     df2 = pd.DataFrame(data)
+    dfi2 = df2.reset_index(drop=True)
     # Now you can work with the DataFrame
     # For example, you can display the first few rows:
     choice2 = st.selectbox('Level 2 - Select area of interest', df2['name'])
@@ -80,10 +81,6 @@ if response.status_code == 200:
     len2 = len(path2)
     dfi = df3.loc[df3['path'].str[:len2] == path2]
     dfi = dfi.reset_index(drop=True)
-    # if 0 in dfi.index:
-    #     st.write(dfi['path'][0])
-    # else:
-    #     st.write("Key 0 not found in the index.")
     choice3 = st.selectbox('Level 3 - Select area of interest', dfi['name'])
     path3 = (dfi['path'][dfi['name'].tolist().index(choice3)])
     st.write(path3)
@@ -108,7 +105,9 @@ if response.status_code == 200:
     # Create a DataFrame from the list of dictionaries
     df4 = pd.DataFrame(data)
     # Now you can work with the DataFrame
-    # For example, you can display the first few rows:
+    len3 = len(path3)
+    dfi = df4.loc[df4['path'].str[:len3] == path3]
+    dfi = dfi.reset_index(drop=True)
     choice4 = st.selectbox('Level 4 - Select area of interest', df4['name'])
     path4 = (df4['path'][df4['name'].tolist().index(choice4)])
     st.write(path4)
