@@ -108,9 +108,10 @@ if response.status_code == 200:
     len3 = len(path3)
     dfs = df4.loc[df4['path'].str[:len3] == path3]
     dfs = dfs.reset_index(drop=True)
-    choice4 = st.selectbox('Level 4 - Select area of interest', dfs['name'])
-    path4 = (dfs['path'][dfs['name'].tolist().index(choice4)])
-    st.write(path4)
+    st.write(dfs)
+    # choice4 = st.selectbox('Level 4 - Select area of interest', dfs['name'])
+    # path4 = (dfs['path'][dfs['name'].tolist().index(choice4)])
+    # st.write(path4)
 
 # Level5
 url = 'https://apis.cbs.gov.il/series/catalog/level?id=4&subject=' + path1 + '&format=xml&download=false'
