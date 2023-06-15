@@ -90,7 +90,7 @@ if response.status_code == 200:
     else:
         choice3 = st.selectbox('Level 3 - Select area of interest', dfi['name'])
         #st.write(dfi['path'].values)
-        path3 = dfi['path'].values
+        path3 = dfi.loc[0, 'path']
     st.write(path3)
 
 # Level4
