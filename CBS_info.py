@@ -67,23 +67,26 @@ if response.status_code == 200:
     root = ET.fromstring(response.content)
     # Extract the data you need from the XML and store it in a list of dictionaries
     data = []
-    for level in root.findall(".//Level"):
-        # Extract relevant data from each item and store it in a dictionary
-        item_data = {
-            "path": ",".join([str(int_element.text) for int_element in level.findall("path/int")]),
-            "name": level.find("name").text,
-        }
-        data.append(item_data)
-    # Create a DataFrame from the list of dictionaries
-    df3 = pd.DataFrame(data)
-    # Now you can work with the DataFrame
-    # For example, you can display the first few rows:
-    len2 = len(path2)
-    dfi = df3.loc[df3['path'].str[:len2] == path2]
-    dfi = dfi.reset_index(drop=True)
-    choice3 = st.selectbox('Level 3 - Select area of interest', dfi['name'])
-    path3 = (dfi['path'][dfi['name'].tolist().index(choice3)])
-    st.write(path3)
+    try:
+        for level in root.findall(".//Level"):
+            # Extract relevant data from each item and store it in a dictionary
+            item_data = {
+                "path": ",".join([str(int_element.text) for int_element in level.findall("path/int")]),
+                "name": level.find("name").text,
+            }
+            data.append(item_data)
+        # Create a DataFrame from the list of dictionaries
+        df3 = pd.DataFrame(data)
+        # Now you can work with the DataFrame
+        # For example, you can display the first few rows:
+        len2 = len(path2)
+        dfi = df3.loc[df3['path'].str[:len2] == path2]
+        dfi = dfi.reset_index(drop=True)
+        choice3 = st.selectbox('Level 3 - Select area of interest', dfi['name'])
+        path3 = (dfi['path'][dfi['name'].tolist().index(choice3)])
+        st.write(path3)
+    except:
+        pass
 
 # Level4
 url = 'https://apis.cbs.gov.il/series/catalog/level?id=4&subject=' + path1 + '&format=xml&download=false'
@@ -125,19 +128,22 @@ if response.status_code == 200:
     root = ET.fromstring(response.content)
     # Extract the data you need from the XML and store it in a list of dictionaries
     data = []
-    for level in root.findall(".//Level"):
-        # Extract relevant data from each item and store it in a dictionary
-        item_data = {
-            "path": ",".join([str(int_element.text) for int_element in level.findall("path/int")]),
-            "name": level.find("name").text,
-        }
-        data.append(item_data)
-    # Create a DataFrame from the list of dictionaries
-    df5 = pd.DataFrame(data)
-    # Now you can work with the DataFrame
-    len4 = len(path4)
-    dfy = df5.loc[df5['path'].str[:len4] == path4]
-    dfy = dfy.reset_index(drop=True)
-    choice5 = st.selectbox('Level 5 - Select area of interest', dfy['name'])
-    path5 = (dfy['path'][dfy['name'].tolist().index(choice5)])
-    st.write(path5)
+    try:
+        for level in root.findall(".//Level"):
+            # Extract relevant data from each item and store it in a dictionary
+            item_data = {
+                "path": ",".join([str(int_element.text) for int_element in level.findall("path/int")]),
+                "name": level.find("name").text,
+            }
+            data.append(item_data)
+        # Create a DataFrame from the list of dictionaries
+        df5 = pd.DataFrame(data)
+        # Now you can work with the DataFrame
+        len4 = len(path4)
+        dfy = df5.loc[df5['path'].str[:len4] == path4]
+        dfy = dfy.reset_index(drop=True)
+        choice5 = st.selectbox('Level 5 - Select area of interest', dfy['name'])
+        path5 = (dfy['path'][dfy['name'].tolist().index(choice5)])
+        st.write(path5)
+    except:
+        pass
