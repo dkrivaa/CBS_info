@@ -115,6 +115,7 @@ if response.status_code == 200:
 # Level5
 url = 'https://apis.cbs.gov.il/series/catalog/level?id=5&subject=' + path1 + '&format=xml&download=false'
 # Send a GET request to the URL
+st.write(url)
 response = requests.get(url)
 # Check if the request was successful (status code 200)
 if response.status_code == 200:
